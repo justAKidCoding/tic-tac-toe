@@ -27,7 +27,7 @@ void scan(char board[RMAX][CMAX])
 {
     int indexBoard[9][3];
     int row = 0;
-    //initialize yourBoard to -1
+    //initializes indexBoard to the default board (all spaces empty)
     for(int r=0; r<3; r++)
     {
         for(int c=0; c<3; c++)
@@ -45,12 +45,21 @@ void scan(char board[RMAX][CMAX])
         {
             if(board[r][c] == you)
             {
-                indexBoard[(r*3) + c][2] = 2;
+                indexBoard[(r*3) + c][2] = 2; //if cell[r][c] is filled with opponent character, indicate that in the indexBoard
+            }
+
+            if(board[r][c] == me)
+            {
+                indexBoard[(r*3) + c][2] = 0; //if cell[r][c] is filled with my character, indicate that in the indexBoard
             }
         }
     }
 
-    cout << indexBoard[4][0] << "\t" << indexBoard[4][1] << "\t" << indexBoard[4][2] << endl;
+    for(int n=0; n<3; n++)  //test print statement for a single line of index board
+    {
+        cout << indexBoard[8][n] << "\t";
+        if(n==2) cout << endl;
+    }
     //printYourBoard(indexBoard);
 }
 
