@@ -25,39 +25,42 @@ void printYourBoard(int yourBoard[9][2])
 
 void scan(char board[RMAX][CMAX])
 {
-    int yourBoard[9][2];
+    int indexBoard[9][3];
+    int row = 0;
     //initialize yourBoard to -1
-    for(int r=0; r<9; r++)
+    for(int r=0; r<3; r++)
     {
-        for(int c=0; c<2; c++)
+        for(int c=0; c<3; c++)
         {
-            yourBoard[r][c] = -1;
+            indexBoard[row][0] = r;
+            indexBoard[row][1] = c;
+            indexBoard[row][2] = 0;
+            row++;
         }
     }
 
-    int cell = 0;
     for(int r=0; r<RMAX; r++)
     {
         for(int c=0; c<CMAX; c++)
         {
-            if(board[r][c] = you)
+            if(board[r][c] == you)
             {
-                yourBoard[cell][0] = r;h
-                yourBoard[cell][1] = c;
-                cell++;
+                indexBoard[(r*3) + c][2] = 2;
             }
         }
     }
 
-    printYourBoard(yourBoard);
+    cout << indexBoard[4][0] << "\t" << indexBoard[4][1] << "\t" << indexBoard[4][2] << endl;
+    //printYourBoard(indexBoard);
 }
 
-int mustBlockDecide(char board[][CMAX])
+void mustBlockDecide(int yourBoard[9][2])
 {
-}
 
+}
 void boardPrint(char board[RMAX][CMAX])
 {
+    cout << "The current board is:\n";
     for(int r=0; r<RMAX; r++)
     {
         for(int c=0; c<CMAX; c++)
@@ -81,7 +84,7 @@ int main()
 
     scan(board);
 
-    //boardPrint(board);
+    boardPrint(board);
 
    return 0;
 }
